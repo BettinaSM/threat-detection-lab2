@@ -2,6 +2,7 @@ from detection.log_parser import parse_file
 from detection.detection_engine import detect
 from detection.correlation_engine import correlate
 import json
+from datetime import datetime
 
 all_events = []
 
@@ -13,9 +14,18 @@ all_events += parse_file("data/cloud/cloudtrail.json", "cloud")
 alerts = detect(all_events)
 correlated = correlate(alerts)
 
+# resumo de severidade
+severity_summary = {}
+for alert in alerts:
+    sev = alert["severity"]
+    severity_summary[sev] = severity_summary.get(sev, 0) + 1
+
 final_output = {
+    "timestamp": str(datetime.now()),
+    "source": "multi-platform",
     "alerts": alerts,
-    "correlated": correlated
+    "correlations": correlated,
+    "severity_summary": severity_summary
 }
 
 with open("output/alerts.json", "w") as f:

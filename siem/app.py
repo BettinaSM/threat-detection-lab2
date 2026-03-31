@@ -1,5 +1,5 @@
-from dashboard import show_dashboard
-from search import search
+from siem.dashboard import show_dashboard
+from siem.search import search
 
 def main():
     while True:

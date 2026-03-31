@@ -1,0 +1,17 @@
+[
+  {
+    "name": "auth_failure",
+    "keywords": ["failed", "authentication failed"],
+    "severity": "medium"
+  },
+  {
+    "name": "privilege_escalation",
+    "keywords": ["root", "sudo"],
+    "severity": "high"
+  },
+  {
+    "name": "public_exposure",
+    "keywords": ["0.0.0.0/0"],
+    "severity": "high"
+  }
+]

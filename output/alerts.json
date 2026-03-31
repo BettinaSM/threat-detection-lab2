@@ -1,51 +1,67 @@
 {
+    "timestamp": "2026-03-31 20:36:06.726978",
+    "source": "multi-platform",
     "alerts": [
         {
-            "type": "privilege_usage",
-            "event": "{'platform': 'linux', 'event': 'Mar 30 10:10:01 server sudo: authentication failure for user root'}"
+            "type": "privilege_escalation",
+            "severity": "high",
+            "event": "{'platform': 'linux', 'event': 'mar 30 10:10:01 server sudo: authentication failure for user root'}"
         },
         {
             "type": "auth_failure",
-            "event": "{'platform': 'linux', 'event': 'Mar 30 10:12:15 server systemd: Failed to start nginx.service'}"
+            "severity": "medium",
+            "event": "{'platform': 'linux', 'event': 'mar 30 10:12:15 server systemd: failed to start nginx.service'}"
         },
         {
             "type": "auth_failure",
-            "event": "{'platform': 'aix', 'event': 'USER_Login root failed from 10.0.0.5'}"
+            "severity": "medium",
+            "event": "{'platform': 'aix', 'event': 'user_login root failed from 10.0.0.5'}"
         },
         {
-            "type": "privilege_usage",
-            "event": "{'platform': 'aix', 'event': 'USER_Login root failed from 10.0.0.5'}"
+            "type": "privilege_escalation",
+            "severity": "high",
+            "event": "{'platform': 'aix', 'event': 'user_login root failed from 10.0.0.5'}"
         },
         {
-            "type": "privilege_usage",
-            "event": "{'platform': 'aix', 'event': 'USER_SU root to admin'}"
+            "type": "privilege_escalation",
+            "severity": "high",
+            "event": "{'platform': 'aix', 'event': 'user_su root to admin'}"
         },
         {
             "type": "auth_failure",
+            "severity": "medium",
             "event": "{'platform': 'unix', 'event': \"su: 'su root' failed for user admin\"}"
         },
         {
-            "type": "privilege_usage",
+            "type": "privilege_escalation",
+            "severity": "high",
             "event": "{'platform': 'unix', 'event': \"su: 'su root' failed for user admin\"}"
         },
         {
             "type": "auth_failure",
-            "event": "{'platform': 'unix', 'event': 'login: FAILED LOGIN 3 FROM 192.168.1.50'}"
+            "severity": "medium",
+            "event": "{'platform': 'unix', 'event': 'login: failed login 3 from 192.168.1.50'}"
         },
         {
             "type": "auth_failure",
-            "event": "{'eventName': 'ConsoleLogin', 'errorMessage': 'Failed authentication'}"
+            "severity": "medium",
+            "event": "{'eventname': 'consolelogin', 'errormessage': 'failed authentication', 'platform': 'cloud'}"
         },
         {
-            "type": "insecure_exposure",
-            "event": "{'eventName': 'AuthorizeSecurityGroupIngress', 'sourceIPAddress': '0.0.0.0/0'}"
+            "type": "public_exposure",
+            "severity": "high",
+            "event": "{'eventname': 'authorizesecuritygroupingress', 'sourceipaddress': '0.0.0.0/0', 'platform': 'cloud'}"
         }
     ],
-    "correlated": [
+    "correlations": [
         {
             "type": "bruteforce_detected",
             "severity": "high",
             "count": 5
         }
-    ]
+    ],
+    "severity_summary": {
+        "high": 5,
+        "medium": 5
+    }
 }

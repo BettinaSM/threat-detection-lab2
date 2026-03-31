@@ -7,7 +7,9 @@ def parse_file(filepath, source):
         for line in f:
             if source == "cloud":
                 try:
-                    events.append(json.loads(line))
+                    data = json.loads(line)
+                    data["platform"] = source
+                    events.append(data)
                 except:
                     continue
             else:
