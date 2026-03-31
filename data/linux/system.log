@@ -1,0 +1,4 @@
+Mar 30 10:10:01 server sudo: authentication failure for user root
+Mar 30 10:12:15 server systemd: Failed to start nginx.service
+Mar 30 10:15:42 server kernel: segfault at 0 ip 00007f
+Mar 30 10:18:33 server sshd: Accepted password for user admin
