@@ -1,14 +1,51 @@
-[
-    {
-        "type": "sudo_misuse",
-        "log": "Mar 30 10:10:01 server sudo: authentication failure for user root"
-    },
-    {
-        "type": "service_failure",
-        "log": "Mar 30 10:12:15 server systemd: Failed to start nginx.service"
-    },
-    {
-        "type": "suspicious_activity",
-        "log": "Mar 30 10:15:42 server kernel: segfault at 0 ip 00007f"
-    }
-]
+{
+    "alerts": [
+        {
+            "type": "privilege_usage",
+            "event": "{'platform': 'linux', 'event': 'Mar 30 10:10:01 server sudo: authentication failure for user root'}"
+        },
+        {
+            "type": "auth_failure",
+            "event": "{'platform': 'linux', 'event': 'Mar 30 10:12:15 server systemd: Failed to start nginx.service'}"
+        },
+        {
+            "type": "auth_failure",
+            "event": "{'platform': 'aix', 'event': 'USER_Login root failed from 10.0.0.5'}"
+        },
+        {
+            "type": "privilege_usage",
+            "event": "{'platform': 'aix', 'event': 'USER_Login root failed from 10.0.0.5'}"
+        },
+        {
+            "type": "privilege_usage",
+            "event": "{'platform': 'aix', 'event': 'USER_SU root to admin'}"
+        },
+        {
+            "type": "auth_failure",
+            "event": "{'platform': 'unix', 'event': \"su: 'su root' failed for user admin\"}"
+        },
+        {
+            "type": "privilege_usage",
+            "event": "{'platform': 'unix', 'event': \"su: 'su root' failed for user admin\"}"
+        },
+        {
+            "type": "auth_failure",
+            "event": "{'platform': 'unix', 'event': 'login: FAILED LOGIN 3 FROM 192.168.1.50'}"
+        },
+        {
+            "type": "auth_failure",
+            "event": "{'eventName': 'ConsoleLogin', 'errorMessage': 'Failed authentication'}"
+        },
+        {
+            "type": "insecure_exposure",
+            "event": "{'eventName': 'AuthorizeSecurityGroupIngress', 'sourceIPAddress': '0.0.0.0/0'}"
+        }
+    ],
+    "correlated": [
+        {
+            "type": "bruteforce_detected",
+            "severity": "high",
+            "count": 5
+        }
+    ]
+}
