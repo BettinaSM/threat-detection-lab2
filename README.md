@@ -34,3 +34,12 @@ Simulate a real-world SOC detection pipeline integrating infrastructure and clou
 - Detection engine with rule-based analysis
 - Correlation engine for threat scenarios
 - Structured JSON output for SIEM integration
+
+## SIEM Simulation
+
+This project includes a simulated SIEM with:
+
+- Alert search capability
+- Dashboard visualization
+- Multi-platform log ingestion
+- Threat correlation
